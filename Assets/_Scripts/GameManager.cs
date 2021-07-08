@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
                     gameState = gameStates.WonLevel;
 
                     //hide the player so game doesn't continue playing
-                    player.SetActive(false);
+                    //player.SetActive(false);
 
                     //switch which GUI is showing
                     mainCanvas.SetActive(false);
