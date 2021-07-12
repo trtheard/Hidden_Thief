@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class CameraController : MonoBehaviour
 
         if(!target)
             return;
-            
+
         tempVec3.x = this.transform.position.x;
         tempVec3.y = target.position.y;
         tempVec3.z = target.position.z;

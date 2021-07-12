@@ -39,7 +39,8 @@ public class GaurdScript : MonoBehaviour
 	void Movement() {
 		// if there isn't anything in My_Waypoints
 		if ((myWaypoints.Length != 0) && (_moving)) {
-
+			Vector3 relativePos =  myWaypoints[_myWaypointIndex].transform.position - _transform.position;
+			_transform.rotation = Quaternion.LookRotation( relativePos);
 			// move towards waypoint
 			_transform.position = Vector3.MoveTowards(_transform.position, myWaypoints[_myWaypointIndex].transform.position, moveSpeed * Time.deltaTime);
 

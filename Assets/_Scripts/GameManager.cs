@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
 
                     //switch which GUI is showing
                     mainCanvas.SetActive(false);
-                    beatLevelCanvas.SetActive(true);
+                    //beatLevelCanvas.SetActive(true);
                 }
                 break;
             case gameStates.Caught:
@@ -114,7 +114,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
 
     public void Collect(int amount)
     {
