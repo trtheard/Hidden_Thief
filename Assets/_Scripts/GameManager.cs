@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private Health playerHealth;
+    [HideInInspector]
+    public Health playerHealth;
     private Exit playerExit;
 
     public static GameManager gm;
@@ -24,9 +25,6 @@ public class GameManager : MonoBehaviour
     public Text mainTextDisplay;
     public GameObject gameOverCanvas;
     public Text gameOverTextDisplay;
-
-    [Tooltip("Only need to set if canBeatLevel is true.")]
-    public GameObject beatLevelCanvas;
 
     public AudioSource backgroundMusic;
     public AudioClip gameOverSFX;
@@ -53,8 +51,6 @@ public class GameManager : MonoBehaviour
         Collect(0);
 
         gameOverCanvas.SetActive(false);
-        if(canBeatLevel)
-            beatLevelCanvas.SetActive(false);
     }
 
     // Update is called once per frame
@@ -85,7 +81,6 @@ public class GameManager : MonoBehaviour
 
                     //switch which GUI is showing
                     mainCanvas.SetActive(false);
-                    //beatLevelCanvas.SetActive(true);
                 }
                 break;
             case gameStates.Caught:

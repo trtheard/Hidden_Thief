@@ -54,3 +54,12 @@ The following packages were updated:
   com.unity.ide.visualstudio from version 2.0.5 to 2.0.7
   com.unity.test-framework from version 1.1.20 to 1.1.22
   com.unity.timeline from version 1.4.5 to 1.4.6
+
+=== Fri Jul 16 15:00:23 2021
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.2d.sprite@1.0.0
+  com.unity.ext.nunit@1.0.0

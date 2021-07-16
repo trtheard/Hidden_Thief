@@ -39,8 +39,9 @@ public class fieldOFView : MonoBehaviour
                 //there are no obsticales and we can see the target
                 if (!Physics.Raycast(transform.position,dirToTarget, disToTarget,obsticalMask))
                 {
-                    //put projectile here
-                    lp.Shoot();
+                    Debug.Log("Gaurd sees player");
+                   if(GameManager.gm != null)
+                        GameManager.gm.playerHealth.isAlive = false;
                 }
             }
         }

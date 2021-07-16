@@ -19,7 +19,6 @@ public class Exit : MonoBehaviour
         {
             //tell gm to collect
             hasEscaped = true;
-            DialogueSystem.Instance.AddNewDialogue(new string[] {"Good Job, now lets get out of here."}, "Radio Partner");
         }
     }
 }
