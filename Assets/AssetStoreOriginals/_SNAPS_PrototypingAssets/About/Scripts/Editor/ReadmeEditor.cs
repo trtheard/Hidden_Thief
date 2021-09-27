@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System;
 using System.IO;
-using System.Reflection; 
+using System.Reflection;
 
 [CustomEditor(typeof(Readme))]
 [InitializeOnLoad]
@@ -12,7 +12,7 @@ public class ReadmeEditor : Editor {
 	
 	static string kShowedReadmeSessionStateName = "ReadmeEditor.showedReadme";
 	
-	static float kSpace = 16f;
+	static float kSpace = 15f;
 	
 	static ReadmeEditor()
 	{
@@ -39,10 +39,10 @@ public class ReadmeEditor : Editor {
 		var assembly = typeof(EditorApplication).Assembly; 
 		var windowLayoutType = assembly.GetType("UnityEditor.WindowLayout", true);
 		var method = windowLayoutType.GetMethod("LoadWindowLayout", BindingFlags.Public | BindingFlags.Static);
-		method.Invoke(null, new object[]{Path.Combine(Application.dataPath, "About/Layout.wlt"), false});
+		method.Invoke(null, new object[]{Path.Combine(Application.dataPath, "»Readme/Layout.wlt"), false});
 	}
 	
-	[MenuItem("Help/Asset Store Originals/SNAPS/About")]
+	[MenuItem("Help/Project Readme")]
 	static Readme SelectReadme() 
 	{
 		var ids = AssetDatabase.FindAssets("Readme t:Readme");
@@ -72,8 +72,7 @@ public class ReadmeEditor : Editor {
 		{
 			GUILayout.Label(readme.icon, GUILayout.Width(iconWidth), GUILayout.Height(iconWidth));
 			GUILayout.Label(readme.title, TitleStyle);
-            GUILayout.Label(readme.titlesub, TitleStyle);
-        }
+		}
 		GUILayout.EndHorizontal();
 	}
 	
@@ -125,14 +124,14 @@ public class ReadmeEditor : Editor {
 			return;
 		m_BodyStyle = new GUIStyle(EditorStyles.label);
 		m_BodyStyle.wordWrap = true;
-		m_BodyStyle.fontSize = 14;
+		m_BodyStyle.fontSize = 12;
 		
 		m_TitleStyle = new GUIStyle(m_BodyStyle);
-		m_TitleStyle.fontSize = 24;
+		m_TitleStyle.fontSize = 22;
 
-        m_HeadingStyle = new GUIStyle(m_BodyStyle);
-		m_HeadingStyle.fontSize = 18;
-		m_HeadingStyle.fontStyle = FontStyle.Bold; 
+		m_HeadingStyle = new GUIStyle(m_BodyStyle);
+		m_HeadingStyle.fontSize = 14;
+		m_HeadingStyle.fontStyle = FontStyle.Bold;
 		
 		m_LinkStyle = new GUIStyle(m_BodyStyle);
 		// Match selection color which works nicely for both light and dark skins

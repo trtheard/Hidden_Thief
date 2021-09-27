@@ -13,6 +13,7 @@ public class Artifacts : MonoBehaviour
     {
         if(hasArtifact)
         {
+            IconTracker.it.changeVentAlpha();
             exits.gameObject.SetActive(true);
         }
         else

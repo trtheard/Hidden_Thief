@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager gm;
+
     [HideInInspector]
     public Health playerHealth;
     private Exit playerExit;
-
-    public static GameManager gm;
 
     [Tooltip("If not set, the player will default to the gameobject tagged as Player.")]
     public GameObject player;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         playerExit = exits.GetComponent<Exit>();
 
         //Setup Score Display
-        Collect(0);
+        //Collect(0);
 
         gameOverCanvas.SetActive(false);
     }
@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
         if(canBeatLevel)
         {
             mainTextDisplay.text = "Jewels: " + score.ToString();
+            IconTracker.it.changeGemAlpha(score);
         }
     }
 }
