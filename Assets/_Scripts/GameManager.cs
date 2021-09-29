@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public int beatLevelScore=0;
 
     public GameObject mainCanvas;
-    public Text mainTextDisplay;
     public GameObject gameOverCanvas;
     public Text gameOverTextDisplay;
 
@@ -65,8 +64,7 @@ public class GameManager : MonoBehaviour
                     gameState = gameStates.Caught;
 
                     //set the end game score
-                    gameOverTextDisplay.text = mainTextDisplay.text;
-
+                    gameOverTextDisplay.text = "You got caught!";
                     //switch which GUi is Showing
                     mainCanvas.SetActive(false);
                     gameOverCanvas.SetActive(true);
@@ -115,7 +113,6 @@ public class GameManager : MonoBehaviour
         score+= amount;
         if(canBeatLevel)
         {
-            mainTextDisplay.text = "Jewels: " + score.ToString();
             IconTracker.it.changeGemAlpha(score);
         }
     }
