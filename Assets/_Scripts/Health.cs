@@ -72,10 +72,13 @@ public class Health : MonoBehaviour
     {
         healthPoints = healthPoints - amount;
     }
+    //For gaurds that allow the player to run away first
     public void ApplyHeal(float amount)
     {
         healthPoints = healthPoints + amount;
     }
+    //Used for later levels
+    //The level is set as if multiple theives have visited the establishment
     public void ApplyBonusLife(int amount)
     {
         numberOfLives = numberOfLives + amount;

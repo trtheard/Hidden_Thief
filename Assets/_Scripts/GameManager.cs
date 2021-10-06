@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     [Tooltip("Only need to set if canBeatLevel is true.")]
     public AudioClip beatLevelSFX;
 
+    public Camera overheadCam;
+    public GameObject changeCam;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,10 +49,10 @@ public class GameManager : MonoBehaviour
         playerHealth = player.GetComponent<Health>();
         playerExit = exits.GetComponent<Exit>();
 
-        //Setup Score Display
-        //Collect(0);
-
         gameOverCanvas.SetActive(false);
+
+        //Setting up the cameras
+        overheadCam.enabled = false;
     }
 
     // Update is called once per frame
@@ -65,17 +68,18 @@ public class GameManager : MonoBehaviour
 
                     //set the end game score
                     gameOverTextDisplay.text = "You got caught!";
-                    //switch which GUi is Showing
+                    //switch which GUi and camera is Showing
                     mainCanvas.SetActive(false);
+                    overheadCam.transform.position = player.transform.position;
+                    player.SetActive(false);
+                    changeCam.SetActive(true);
+                    MouseLooker.ml.LockCursor(false);
                     gameOverCanvas.SetActive(true);
                 } 
                 else if (canBeatLevel && score >= beatLevelScore && playerExit.hasEscaped)
                 {
                     //update gameState
                     gameState = gameStates.WonLevel;
-
-                    //hide the player so game doesn't continue playing
-                    //player.SetActive(false);
 
                     //switch which GUI is showing
                     mainCanvas.SetActive(false);

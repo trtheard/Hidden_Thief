@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MouseLooker : MonoBehaviour {
 
+	public static MouseLooker ml;
+
 	// Use this for initialization
 	public float XSensitivity = 2f;
 	public float YSensitivity = 2f;
@@ -19,6 +21,8 @@ public class MouseLooker : MonoBehaviour {
 	private Transform cameraTransform;
 
 	void Start() {
+		if(ml == null)
+			ml = this.gameObject.GetComponent<MouseLooker>();
 		// start the game with the cursor locked
 		LockCursor (true);
 
@@ -48,7 +52,8 @@ public class MouseLooker : MonoBehaviour {
 		}
 	}
 	
-	private void LockCursor(bool isLocked)
+	[HideInInspector]
+	public void LockCursor(bool isLocked)
 	{
 		if (isLocked) 
 		{

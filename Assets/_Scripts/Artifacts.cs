@@ -32,6 +32,7 @@ public class Artifacts : MonoBehaviour
                 //tell gm to collect
                 GameManager.gm.Collect(value);
                 hasArtifact = true;
+                //Check if the player collected all the artifacts in the scene
                 ShowExit();
             }
 
